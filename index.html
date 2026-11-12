@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Prachi &amp; Rahul Wedding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Marcellus+SC&family=Pinyon+Script&family=Tiro+Devanagari+Hindi&display=swap">
+<meta name="description" content="Wedding invitation · Prachi & Rahul · Wednesday, 2nd December 2026 · Sri Marwari Thakur Bari, Jorhat">
+<meta property="og:title" content="Prachi & Rahul · Wedding Invitation">
+<meta property="og:description" content="Wednesday, 2nd December 2026 · Sri Marwari Thakur Bari, Jorhat">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/lotus_r.webp">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- envelope -->
+<div class="env" id="env">
+  <div class="env-paper"></div>
+  <div class="pocket"></div>
+  <div class="flap"><div class="flap-front"></div><div class="flap-back"></div></div>
+  <button class="seal" id="seal" aria-label="Open the invitation">
+    <svg viewBox="0 0 150 150" aria-hidden="true">
+      <defs>
+        <radialGradient id="wax" cx="42%" cy="38%" r="70%">
+          <stop offset="0" stop-color="#fbe7a6"/>
+          <stop offset=".45" stop-color="#e2b24f"/>
+          <stop offset=".85" stop-color="#b47d22"/>
+          <stop offset="1" stop-color="#8e5e14"/>
+        </radialGradient>
+        <radialGradient id="wax2" cx="50%" cy="50%" r="50%">
+          <stop offset=".7" stop-color="#f1cf7a"/>
+          <stop offset="1" stop-color="#c38f30"/>
+        </radialGradient>
+      </defs>
+      <path id="sealBlob" fill="url(#wax)"/>
+      <circle cx="75" cy="75" r="50" fill="url(#wax2)"/>
+      <circle cx="75" cy="75" r="50" fill="none" stroke="#9c6a18" stroke-opacity=".55" stroke-width="2"/>
+      <circle cx="75" cy="75" r="45" fill="none" stroke="#fff3c9" stroke-opacity=".6" stroke-width="1"/>
+    </svg>
+    <img src="assets/monogram.webp" alt="">
+  </button>
+  <div class="env-hint">
+    <p class="eyebrow">You are invited</p>
+    <p class="script">Tap the seal to open</p>
+  </div>
+</div>
+
+<canvas id="petals" aria-hidden="true"></canvas>
+
+<main class="patra">
+  <svg class="toran" data-toran viewBox="0 0 400 74" aria-hidden="true"></svg>
+
+  <section class="hero">
+    <p class="eyebrow">Together with their families</p>
+    <div class="oval">
+      <img class="mono" src="assets/monogram.webp" alt="Prachi and Rahul monogram with lotus flowers and an elephant">
+      <img class="lotus-a" src="assets/lotus_l.webp" alt="">
+      <img class="lotus-b" src="assets/lotus_r.webp" alt="">
+    </div>
+    <h1 class="names script">Prachi<span class="amp">&amp;</span>Rahul</h1>
+    <p class="eyebrow tag">are getting married</p>
+  </section>
+
+  <section class="reveal rise">
+    <h2>A Special Reveal</h2>
+    <p class="sub">Scratch the heart to see our date</p>
+    <div class="heart-wrap">
+      <svg class="under" viewBox="0 0 260 236" aria-hidden="true">
+        <path d="M130 226 C 60 176, 10 132, 10 76 C 10 38, 40 12, 76 12 C 100 12, 120 26, 130 46 C 140 26, 160 12, 184 12 C 220 12, 250 38, 250 76 C 250 132, 200 176, 130 226 Z" fill="#fffdf9" stroke="#e2668f" stroke-width="3"/>
+        <path d="M130 214 C 66 168, 21 128, 21 77 C 21 45, 46 23, 76 23 C 99 23, 117 37, 130 60 C 143 37, 161 23, 184 23 C 214 23, 239 45, 239 77 C 239 128, 194 168, 130 214 Z" fill="none" stroke="#d9a13b" stroke-opacity=".6" stroke-width="1"/>
+      </svg>
+      <div class="heart-date">
+        <span class="d">2<sup>nd</sup> December 2026</span>
+        <span class="w">WEDNESDAY</span>
+      </div>
+      <canvas id="scratch" width="260" height="236" aria-label="Scratch card hiding the wedding date. Drag across it to reveal." role="img"></canvas>
+    </div>
+    <div class="elephants" aria-hidden="true">
+      <img class="el-l" src="assets/elephant.webp" alt="">
+      <img class="el-r" src="assets/elephant.webp" alt="">
+    </div>
+    <div class="countdown" id="countdown" aria-live="off">
+      <div><b data-k="d">00</b><span>Days</span></div>
+      <div><b data-k="h">00</b><span>Hours</span></div>
+      <div><b data-k="m">00</b><span>Mins</span></div>
+      <div><b data-k="s">00</b><span>Secs</span></div>
+    </div>
+  </section>
+
+  <section class="blessing rise">
+    <p class="ganesh">॥ श्री गणेशाय नमः ॥</p>
+    <p class="shloka">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।<br>निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥</p>
+    <p class="lead">With the blessings of the Almighty and our elders</p>
+    <p class="request">we joyfully invite you to celebrate the wedding of</p>
+    <p class="person script">Rahul</p>
+    <p class="of">son of Mrs. Mamta More &amp; Late Mr. Pushkar Raj More</p>
+    <p class="with">WITH</p>
+    <p class="person script">Prachi</p>
+    <p class="of">daughter of Mrs. Pinky Agarwal &amp; Late Mr. Anil Agarwal</p>
+    <div class="lotus-rule"><img src="assets/lotus_r.webp" alt=""></div>
+  </section>
+
+  <section class="ceremonies">
+    <p class="eyebrow rise">Join us for</p>
+    <h2 class="rise">The Wedding</h2>
+    <div class="events" id="events"></div>
+  </section>
+
+  <section class="farewell rise">
+    <svg class="toran" data-toran viewBox="0 0 400 74" aria-hidden="true"></svg>
+    <p class="msg">Your presence and blessings will make our celebrations complete.</p>
+    <p class="eyebrow" style="margin-top:26px">With love</p>
+    <p class="sign script">The More &amp; Agarwal Families</p>
+    <div class="rsvp">
+      <p class="eyebrow">RSVP</p>
+      <div class="row"><span class="who">Prabesh Agarwal</span><a class="num" href="tel:+918822322770">+91 88223 22770</a></div>
+      <div class="row"><span class="who">Lokesh Agarwal</span><a class="num" href="tel:+919854940794">+91 98549 40794</a></div>
+    </div>
+    <div class="procession" aria-hidden="true">
+      <img class="lt" src="assets/elephant.webp" alt="">
+      <img class="mid" src="assets/lotus_l.webp" alt="">
+      <img src="assets/elephant.webp" alt="">
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
