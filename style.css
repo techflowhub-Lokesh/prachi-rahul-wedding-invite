@@ -1,67 +1,3 @@
-html,body{margin:0}
-:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-[hidden]{display:none!important}
-/* Layout: a single scroll "patra" column on a watercolour wash — envelope → monogram → scratch reveal → blessings → arch-framed ceremonies → farewell with elephant procession. Deliberately single-theme (paper invitation). */
-:root{
-  color-scheme: light;
-  --paper:#f6f4ef;        /* ivory wash */
-  --ink:#2c4a4b;          /* deep teal-ink for text */
-  --teal:#3f8f91;         /* monogram teal */
-  --lotus:#e2668f;        /* lotus pink */
-  --lotus-soft:#f6c9d6;
-  --marigold:#d9a13b;     /* umbrella gold */
-  --saffron:#c8641e;
-  --muted:#6f8584;
-  --blush:#f2dfdb;        /* envelope paper */
-  --f-display:"Marcellus SC","Cormorant SC",Georgia,serif;
-  --f-body:"Cormorant Garamond",Garamond,"Times New Roman",serif;
-  --f-script:"Pinyon Script","Great Vibes","Apple Chancery",cursive;
-  --f-deva:"Tiro Devanagari Hindi","Noto Serif Devanagari","Mangal",serif;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  background:var(--paper) url("assets/wash.jpg") repeat center top / 640px auto;
-  color:var(--ink);font-family:var(--f-body);font-size:19px;line-height:1.55;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;
-}
-body.locked{overflow:hidden;height:100%}
-img{max-width:100%;display:block}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--lotus);outline-offset:3px;border-radius:6px}
-
-/* ---------- column ---------- */
-.patra{
-  max-width:520px;margin:0 auto;text-align:center;position:relative;
-  padding-left:max(16px, env(safe-area-inset-left, 0px));
-  padding-right:max(16px, env(safe-area-inset-right, 0px));
-  padding-block:0 40px;
-}
-section{position:relative;padding-block:56px}
-.eyebrow{font-family:var(--f-display);letter-spacing:.18em;font-size:.82rem;color:var(--muted);text-transform:uppercase}
-h2{font-family:var(--f-display);font-weight:400;font-size:clamp(1.6rem,6vw,2.1rem);letter-spacing:.08em;color:var(--teal);margin:0;text-wrap:balance}
-.script{font-family:var(--f-script);font-weight:400;color:var(--ink);line-height:1.05}
-p{margin:0}
-.toran{width:100%;height:auto;display:block}
-
-/* ---------- hero ---------- */
-.hero{padding-top:18px}
-.oval{
-  position:relative;margin:28px auto 0;width:min(86%,380px);aspect-ratio:3/4;
-  border-radius:50%;display:grid;place-items:center;
-}
-.oval::before,.oval::after{content:"";position:absolute;inset:0;border-radius:50%;border:1.5px solid var(--marigold);opacity:.8}
-.oval::after{inset:9px;border:1px solid var(--teal);opacity:.45}
-.oval .mono{width:88%;filter:drop-shadow(0 6px 10px rgba(44,74,75,.12))}
-.hero .lotus-a{position:absolute;width:34%;left:-4%;bottom:-6%;transform:rotate(-6deg)}
-.hero .lotus-b{position:absolute;width:24%;right:0;top:-4%;transform:rotate(14deg)}
-.hero .names{font-size:clamp(3rem,13vw,4.3rem);margin-top:26px;color:var(--ink)}
-.hero .names .amp{color:var(--lotus);font-size:.8em;padding:0 .12em}
-.hero .tag{margin-top:6px}
-
-/* ---------- reveal ---------- */
-.reveal .sub{margin-top:8px;font-style:italic;color:var(--muted)}
-.heart-wrap{position:relative;width:260px;height:236px;margin:26px auto 0;max-width:100%}
 .heart-wrap svg.under{position:absolute;inset:0;width:100%;height:100%}
 .heart-date{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-bottom:28px}
 .heart-date .d{font-family:var(--f-display);font-size:1.7rem;color:var(--ink);letter-spacing:.04em}
@@ -185,3 +121,7 @@ p{margin:0}
 @media (prefers-reduced-motion:reduce){
   .flap,.env-paper,.pocket{transition-duration:.01s!important;transition-delay:0s!important}
 }
+
+/* Keep the scratch section comfortably in view after the opening animation. */
+#scratch-reveal{scroll-margin-top:12px}
+#scratch-instruction{max-width:30ch;margin-left:auto;margin-right:auto}
