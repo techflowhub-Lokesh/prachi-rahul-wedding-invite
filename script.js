@@ -138,19 +138,39 @@ const Petals=(function(){
   };
 })();
 
-/* envelope */
+/* envelope: open -> finish animation -> automatically show scratch reveal */
 (function(){
   const env=document.getElementById("env");
+  const reveal=document.getElementById("scratch-reveal");
+  const seal=document.getElementById("seal");
   document.body.classList.add("locked");
   let opened=false;
   const open=()=>{
-    if(opened) return; opened=true;
-    env.classList.add("open"); scrollTo(0,0);
-    setTimeout(()=>{document.body.classList.remove("locked");Petals.start()}, reduce?0:900);
-    setTimeout(()=>env.classList.add("gone"), reduce?50:2000);
+    if(opened) return;
+    opened=true;
+    seal.disabled=true; // prevent double triggers during animation
+    env.classList.add("open");
+    window.scrollTo(0,0);
+
+    // Unlock once the envelope has started opening, and keep the artwork's
+    // original animation intact. Remove the overlay before navigating.
+    setTimeout(()=>{
+      document.body.classList.remove("locked");
+      Petals.start();
+    },reduce?0:900);
+    setTimeout(()=>{
+      env.classList.add("gone");
+      // Skip directly to the scratch/date section, rather than making the
+      // visitor manually scroll past the opening hero artwork.
+      if(reveal){
+        reveal.scrollIntoView({behavior:reduce?"instant":"smooth",block:"start"});
+      }
+    },reduce?50:2000);
   };
-  document.getElementById("seal").addEventListener("click",open);
-  env.addEventListener("click",e=>{ if(e.target===env||e.target.closest(".env-hint")) open(); });
+  seal.addEventListener("click",open);
+  env.addEventListener("click",e=>{
+    if(e.target===env||e.target.closest(".env-hint")) open();
+  });
 })();
 
 /* scratch heart */
