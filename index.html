@@ -72,7 +72,8 @@
         <path d="M130 214 C 66 168, 21 128, 21 77 C 21 45, 46 23, 76 23 C 99 23, 117 37, 130 60 C 143 37, 161 23, 184 23 C 214 23, 239 45, 239 77 C 239 128, 194 168, 130 214 Z" fill="none" stroke="#d9a13b" stroke-opacity=".6" stroke-width="1"/>
       </svg>
       <div class="heart-date">
-        <span class="d">2<sup>nd</sup> December 2026</span>
+        <span class="d">2<sup>nd</sup> December</span>
+        <span class="date-year">2026</span>
         <span class="w">WEDNESDAY</span>
       </div>
       <canvas id="scratch" width="260" height="236" aria-label="Scratch the heart with your finger or mouse to reveal our wedding date. Press Enter or Space to reveal without scratching." aria-describedby="scratch-instruction" role="img"></canvas>
@@ -126,6 +127,9 @@
   </section>
 </main>
 
+<!-- Original, wordless instrumental music; playback starts only after opening the envelope. -->
+<audio id="wedding-music" src="assets/wedding-instrumental.mp3" preload="auto" loop></audio>
+<button id="music-toggle" class="music-toggle" type="button" aria-label="Mute background music" aria-pressed="true" hidden>♫ <span>Music on</span></button>
 <script src="script.js"></script>
 </body>
 </html>
