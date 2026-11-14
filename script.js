@@ -150,6 +150,8 @@ const Petals=(function(){
     opened=true;
     seal.disabled=true; // prevent double triggers during animation
     env.classList.add("open");
+    // This is a direct user click: browsers allow audio playback here.
+    startWeddingMusic();
     window.scrollTo(0,0);
 
     // Unlock once the envelope has started opening, and keep the artwork's
@@ -217,3 +219,25 @@ const Petals=(function(){
   cv.tabIndex=0;
   cv.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();finish()}});
 })();
+
+/* Soft, original instrumental background music. No voice/lyrics.
+   On mobile the invitation must be opened before audio can play. */
+const weddingMusic=document.getElementById("wedding-music");
+const musicToggle=document.getElementById("music-toggle");
+weddingMusic.volume=0.24;
+function setMusicButton(playing){
+  musicToggle.setAttribute("aria-pressed",String(playing));
+  musicToggle.setAttribute("aria-label",playing?"Mute background music":"Play background music");
+  musicToggle.querySelector("span").textContent=playing?"Music on":"Music off";
+}
+function startWeddingMusic(){
+  musicToggle.hidden=false;
+  const started=weddingMusic.play();
+  if(started&&typeof started.then==="function"){
+    started.then(()=>setMusicButton(true)).catch(()=>setMusicButton(false));
+  }else{setMusicButton(!weddingMusic.paused)}
+}
+musicToggle.addEventListener("click",()=>{
+  if(weddingMusic.paused){startWeddingMusic();}
+  else{weddingMusic.pause();setMusicButton(false)}
+});
